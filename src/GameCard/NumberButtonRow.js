@@ -22,23 +22,57 @@ const useStyles = makeStyles({
 function NumberButtonRow(props) {
     const classes = useStyles();
 
-    const { color, farthestRightNum, selectButton } = props;
+    const { color, farthestRightNum, selectButton, totals } = props;
 
     let btnRow = [];
 
+    switch(color) {
+        case "red":
+            break;
+        case "yellow":
+            break;
+        case "green":
+            break;
+        case "blue":
+            break;
+            
+    }
+
     if (color === "red" || color === "yellow") {
         btnRow = Array.from({ length: 11 }, (_, i) => i + 2).map((number) => (
-            <NumberButton key={number} number={number} color={color} disabled={number <= farthestRightNum} activate={selectButton}/>
+            <NumberButton key={number} 
+                        number={number} 
+                        color={color} 
+                        disabled={number <= farthestRightNum} 
+                        activate={selectButton}
+                        isValidChoice={totals[color].includes(number) || totals.common.includes(number)}
+            />
         ));
         btnRow.push(
-            <NumberButton key={13} number={"LOCK"} color={color} disabled={farthestRightNum === 13} activate={selectButton} />
+            <NumberButton key={13} 
+                        number={"LOCK"} 
+                        color={color} 
+                        disabled={farthestRightNum === 13} 
+                        activate={selectButton} 
+            />
         );
     } else if (color === "green" || color === "blue") {
         btnRow = Array.from({ length: 11 }, (_, i) => -(i - 12)).map((number) => (
-            <NumberButton key={number} number={number} color={color} disabled={number >= farthestRightNum} activate={selectButton} />
+            <NumberButton key={number} 
+                        number={number} 
+                        color={color} 
+                        disabled={number >= farthestRightNum} 
+                        activate={selectButton}
+                        isValidChoice={totals[color].includes(number) || totals.common.includes(number)}
+            />
         ));
         btnRow.push(
-            <NumberButton key={13} number={"LOCK"} color={color} disabled={farthestRightNum === 1} activate={selectButton} />
+            <NumberButton key={13} 
+                        number={"LOCK"} 
+                        color={color} 
+                        disabled={farthestRightNum === 1} 
+                        activate={selectButton} 
+            />
         );
     }
 

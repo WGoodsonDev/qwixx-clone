@@ -7,7 +7,6 @@ const useStyles = makeStyles({
     btn: {
         paddingLeft: 4,
         paddingRight: 4,
-        minWidth: 50,
         width: "auto"
     }
 });
@@ -15,11 +14,19 @@ const useStyles = makeStyles({
 function NumberButton(props) {
     const classes = useStyles();
 
-    const { number, color, disabled, activate } = props;
+    const { number, color, disabled, activate, isValidChoice } = props;
 
     return (
         <Grid item xs={1}>
-            <Button className={classes.btn} variant="outlined" onClick={() => activate(color, number)} disabled={disabled}>{number}</Button>
+            <Button className={classes.btn} 
+                    size="medium"
+                    variant="outlined" 
+                    onClick={isValidChoice ? () => activate(color, number) : null} 
+                    disabled={disabled}
+                    color={isValidChoice ? "primary" : "default"}
+            >
+                {number}
+            </Button>
         </Grid>
     )
 }

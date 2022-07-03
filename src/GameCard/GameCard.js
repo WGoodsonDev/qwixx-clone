@@ -17,8 +17,10 @@ const useStyles = makeStyles({
 })
 
 
-function GameCard() {
+function GameCard(props) {
     const classes = useStyles();
+
+    const { totals } = props;
 
     const [boardState, setBoardState] = useState({
         red: 1,
@@ -75,10 +77,26 @@ function GameCard() {
                 <Grid container item xs={12}>
                     <Grid item xs={3}/>
                     <Paper>
-                        <NumberButtonRow farthestRightNum={boardState.red} color={"red"} selectButton={selectNumberButton}/>
-                        <NumberButtonRow farthestRightNum={boardState.yellow} color={"yellow"} selectButton={selectNumberButton}/>
-                        <NumberButtonRow farthestRightNum={boardState.green} color={"green"} selectButton={selectNumberButton}/>
-                        <NumberButtonRow farthestRightNum={boardState.blue} color={"blue"} selectButton={selectNumberButton}/>
+                        <NumberButtonRow farthestRightNum={boardState.red} 
+                                        color={"red"} 
+                                        selectButton={selectNumberButton}
+                                        totals={totals}
+                        />
+                        <NumberButtonRow farthestRightNum={boardState.yellow} 
+                                        color={"yellow"} 
+                                        selectButton={selectNumberButton}
+                                        totals={totals}
+                        />
+                        <NumberButtonRow farthestRightNum={boardState.green} 
+                                        color={"green"} 
+                                        selectButton={selectNumberButton}
+                                        totals={totals}
+                        />
+                        <NumberButtonRow farthestRightNum={boardState.blue} 
+                                        color={"blue"} 
+                                        selectButton={selectNumberButton}
+                                        totals={totals}
+                        />
                     </Paper>
                     <Grid item xs={3}/>
                 </Grid>
