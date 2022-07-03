@@ -3,13 +3,33 @@ import { makeStyles } from "@material-ui/core";
 import { Button, Grid } from "@material-ui/core";
 
 
-function NumberButton(props) {
+const useStyles = makeStyles({
+    root: {
+        minWidth: 275,
+        padding: 20
+    },
+    redRow: {
+        backgroundColor: "rgba(255,0,0,0.8)",
+    },
+    yellowRow: {
+        backgroundColor: "rgba(255,255,0,0.8)",
+    },
+    greenRow: {
+        backgroundColor: "rgba(0,255,0,0.8)",
+    },
+    blueRow: {
+        backgroundColor: "rgba(0,0,255,0.8)",
+    },
+});
 
-    const { number, select, cName } = props;
+function NumberButton(props) {
+    const classes = useStyles();
+
+    const { number, disabled,  } = props;
 
     return (
         <Grid item xs={1}>
-            <Button className={cName}>{number}</Button>
+            <Button  disabled={disabled}>{number}</Button>
         </Grid>
     )
 }
