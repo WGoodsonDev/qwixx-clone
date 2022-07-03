@@ -1,11 +1,20 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core";
 import {
     Grid,
     Paper
 } from "@material-ui/core";
 
+const useStyles = makeStyles({
+    root: {
+        minWidth: 100
+    },
+})
+
+
 const TotalsDisplay = (props) => {
 
+    const classes = useStyles();
 
     return (
         <>
