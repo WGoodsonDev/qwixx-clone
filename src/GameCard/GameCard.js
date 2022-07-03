@@ -14,6 +14,9 @@ const useStyles = makeStyles({
         minWidth: 275,
         padding: 20
     },
+    board: {
+        margin: "auto"
+    }
 })
 
 
@@ -75,8 +78,7 @@ function GameCard(props) {
         <Card className={classes.root} variant="outlined">
             <CardContent>
                 <Grid container item xs={12}>
-                    <Grid item xs={3}/>
-                    <Paper>
+                    <Paper className={classes.board}>
                         <NumberButtonRow farthestRightNum={boardState.red} 
                                         color={"red"} 
                                         selectButton={selectNumberButton}
@@ -98,7 +100,6 @@ function GameCard(props) {
                                         totals={totals}
                         />
                     </Paper>
-                    <Grid item xs={3}/>
                 </Grid>
                 
             </CardContent>

@@ -7,7 +7,7 @@ import {
 
 const useStyles = makeStyles({
     root: {
-        minWidth: 100
+        minWidth: 0
     },
 })
 
