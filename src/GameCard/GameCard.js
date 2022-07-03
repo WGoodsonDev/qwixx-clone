@@ -72,13 +72,15 @@ function GameCard() {
 
         <Card className={classes.root} variant="outlined">
             <CardContent>
-                <Grid>
+                <Grid container item xs={12}>
+                    <Grid item xs={3}/>
                     <Paper>
                         <NumberButtonRow farthestRightNum={boardState.red} color={"red"} selectButton={selectNumberButton}/>
                         <NumberButtonRow farthestRightNum={boardState.yellow} color={"yellow"} selectButton={selectNumberButton}/>
                         <NumberButtonRow farthestRightNum={boardState.green} color={"green"} selectButton={selectNumberButton}/>
                         <NumberButtonRow farthestRightNum={boardState.blue} color={"blue"} selectButton={selectNumberButton}/>
                     </Paper>
+                    <Grid item xs={3}/>
                 </Grid>
                 
             </CardContent>

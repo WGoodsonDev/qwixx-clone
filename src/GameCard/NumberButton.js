@@ -4,22 +4,12 @@ import { Button, Grid } from "@material-ui/core";
 
 
 const useStyles = makeStyles({
-    root: {
-        minWidth: 275,
-        padding: 20
-    },
-    redRow: {
-        backgroundColor: "rgba(255,0,0,0.8)",
-    },
-    yellowRow: {
-        backgroundColor: "rgba(255,255,0,0.8)",
-    },
-    greenRow: {
-        backgroundColor: "rgba(0,255,0,0.8)",
-    },
-    blueRow: {
-        backgroundColor: "rgba(0,0,255,0.8)",
-    },
+    btn: {
+        paddingLeft: 4,
+        paddingRight: 4,
+        minWidth: 50,
+        width: "auto"
+    }
 });
 
 function NumberButton(props) {
@@ -29,7 +19,7 @@ function NumberButton(props) {
 
     return (
         <Grid item xs={1}>
-            <Button onClick={() => activate(color, number)} disabled={disabled}>{number}</Button>
+            <Button className={classes.btn} variant="outlined" onClick={() => activate(color, number)} disabled={disabled}>{number}</Button>
         </Grid>
     )
 }
