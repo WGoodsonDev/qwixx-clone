@@ -54,10 +54,10 @@ function GameCard() {
             <CardContent>
                 <Grid>
                     <Paper>
-                        <NumberButtonRow color={"red"}/>
-                        <NumberButtonRow color={"yellow"}/>
-                        <NumberButtonRow color={"green"}/>
-                        <NumberButtonRow color={"blue"}/>
+                        <NumberButtonRow highestNum={0} color={"red"}/>
+                        <NumberButtonRow highestNum={0} color={"yellow"}/>
+                        <NumberButtonRow highestNum={0} color={"green"}/>
+                        <NumberButtonRow highestNum={0} color={"blue"}/>
                     </Paper>
                 </Grid>
                 <Button onClick={resetBoard}>RESET BOARD</Button>
