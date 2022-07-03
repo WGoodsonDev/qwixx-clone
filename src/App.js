@@ -1,9 +1,7 @@
 import { Box, Button, Grid, Paper } from "@material-ui/core";
 import React, { useState } from "react";
 import DiceDisplay from "./DiceDisplay/DiceDisplay";
-import DieDisplay from "./DiceDisplay/DieDisplay";
-import GameCard from "./GameCard";
-import TotalsDisplay from "./DiceDisplay/TotalsDisplay";
+import GameCard from "./GameCard/GameCard";
 
 function App() {
 
