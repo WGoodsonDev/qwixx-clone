@@ -25,11 +25,11 @@ const useStyles = makeStyles({
 function NumberButton(props) {
     const classes = useStyles();
 
-    const { number, disabled,  } = props;
+    const { number, color, disabled, activate } = props;
 
     return (
         <Grid item xs={1}>
-            <Button  disabled={disabled}>{number}</Button>
+            <Button onClick={() => activate(color, number)} disabled={disabled}>{number}</Button>
         </Grid>
     )
 }

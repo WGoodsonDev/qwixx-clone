@@ -21,32 +21,52 @@ function GameCard() {
     const classes = useStyles();
 
     const [boardState, setBoardState] = useState({
-        red: [],
-        yellow: [],
-        green: [],
-        blue: []
+        red: 1,
+        yellow: 1,
+        green: 13,
+        blue: 13
     });
 
     const resetBoard = () => {
         setBoardState({
-            red: [],
-            yellow: [],
-            green: [],
-            blue: []
+            red: 1,
+            yellow: 1,
+            green: 13,
+            blue: 13
         });
     };
 
-    const selectNumberButton = (row, number) => {
+    const selectNumberButton = (color, number) => {
 
+        switch(color) {
+            case "red":
+                setBoardState(boardState => ({
+                    ...boardState,
+                    red: number === "LOCK" ? 13 : number
+                }));
+                break;
+            case "yellow":
+                setBoardState(boardState => ({
+                    ...boardState,
+                    yellow: number === "LOCK" ? 13 : number
+                }));
+                break;
+            case "green":
+                setBoardState(boardState => ({
+                    ...boardState,
+                    green: number === "LOCK" ? 1 : number
+                }));
+                break;
+            case "blue":
+                setBoardState(boardState => ({
+                    ...boardState,
+                    blue: number === "LOCK" ? 1 : number
+                }));
+                break;
+        }
+        
     };
 
-    let btnRow = Array.from({ length: 11 }, (_, i) => i + 2).map((number) => (
-        <NumberButton key={number} number={number} cName={classes.numberBtn} />
-    ));
-
-    btnRow.push(
-        <NumberButton key={13} number={"LOCK"} disabled={true} cName={classes.numberBtn} />
-    );
 
     return (
 
@@ -54,16 +74,16 @@ function GameCard() {
             <CardContent>
                 <Grid>
                     <Paper>
-                        <NumberButtonRow highestNum={0} color={"red"}/>
-                        <NumberButtonRow highestNum={0} color={"yellow"}/>
-                        <NumberButtonRow highestNum={0} color={"green"}/>
-                        <NumberButtonRow highestNum={0} color={"blue"}/>
+                        <NumberButtonRow farthestRightNum={boardState.red} color={"red"} selectButton={selectNumberButton}/>
+                        <NumberButtonRow farthestRightNum={boardState.yellow} color={"yellow"} selectButton={selectNumberButton}/>
+                        <NumberButtonRow farthestRightNum={boardState.green} color={"green"} selectButton={selectNumberButton}/>
+                        <NumberButtonRow farthestRightNum={boardState.blue} color={"blue"} selectButton={selectNumberButton}/>
                     </Paper>
                 </Grid>
-                <Button onClick={resetBoard}>RESET BOARD</Button>
+                
             </CardContent>
             <CardActions>
-
+                <Button onClick={resetBoard}>RESET BOARD</Button>
             </CardActions>
         </Card>
     )
